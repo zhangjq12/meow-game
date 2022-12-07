@@ -1,5 +1,6 @@
 .App {
   text-align: center;
+  width: 100%;
 }
 
 .App-logo {
@@ -26,6 +27,12 @@
 
 .App-link {
   color: #61dafb;
+}
+
+.gameCanvas {
+  position: absolute;
+  left: 0;
+  top: 0;
 }
 
 @keyframes App-logo-spin {
