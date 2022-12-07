@@ -34,7 +34,7 @@ export default class Question {
     if (player.y > ques.y && this.underQuestion(player, ques)) {
       this.flowers.create();
       this.count ++;
-      if (this.count === 10) {
+      if (this.count === 5) {
         this.count = 0;
         this.scene.scene.pause('startScene');
         eventEmitter.emit('photo');

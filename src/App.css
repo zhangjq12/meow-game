@@ -25,6 +25,10 @@
   color: white;
 }
 
+.title-logo {
+  margin: 65px 0 15px 0;
+}
+
 .App-link {
   color: #61dafb;
 }
@@ -33,6 +37,14 @@
   position: absolute;
   left: 0;
   top: 0;
+}
+
+.victoryStr {
+  position: absolute;
+  left: 30px;
+  top: 30px;
+  font-size: 24px;
+  color: #fff;
 }
 
 @keyframes App-logo-spin {

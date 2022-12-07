@@ -1,4 +1,5 @@
 import Phaser from "phaser";
+import { eventEmitter } from "../../eventEmitter";
 import { globalVariables } from "../game";
 
 export default class Collection {
@@ -46,6 +47,10 @@ export default class Collection {
     star.disableBody(true, true);
     globalVariables.totalScore += 10;
     this.scoreTextLabel.setText("爱星得分: " + globalVariables.totalScore);
+    if (globalVariables.totalScore === 520) {
+      this.scene.scene.pause();
+      eventEmitter.emit('victory');
+    }
     if (this.stars.countActive(true) === 0) {
       this.stars.children.iterate(function (child) {
         child.enableBody(true, child.x, 0, true, true);

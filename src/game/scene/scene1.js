@@ -28,23 +28,12 @@ export default class HelloWorldScene extends Phaser.Scene {
     this.load.image('star', 'assets/star.png');
     this.load.image('rosered', 'assets/rosered.png');
     this.load.image('roseblue', 'assets/roseblue.png');
+    this.load.image('zhudou', 'assets/zhudou.jpeg');
     // this.load.image('bomb', 'assets/sprites/bomb.png');
     this.load.spritesheet('dude', 
         'assets/dude.png',
         { frameWidth: 32, frameHeight: 42 }
     );
-    // this.load.spritesheet('mitaowalking', 
-    //     'assets/mitaowalking.png',
-    //     { frameWidth: 240, frameHeight: 240 }
-    // );
-    // this.load.spritesheet('mitaowalkingright', 
-    //     'assets/mitaowalkingright.png',
-    //     { frameWidth: 240, frameHeight: 240 }
-    // );
-    // this.load.spritesheet('mitaostop', 
-    //     'assets/mitaostop.png',
-    //     { frameWidth: 240, frameHeight: 240 }
-    // );
     this.load.spritesheet('mitao', 'assets/mitao.png', { frameWidth: 240, frameHeight: 240 });
   }
 

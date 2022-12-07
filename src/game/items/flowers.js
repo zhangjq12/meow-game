@@ -16,6 +16,7 @@ export default class Flowers {
         const y = 13 * Math.cos(t) - 5 * Math.cos(2 * t) - 2 * Math.cos(3 * t) - Math.cos(4 * t);
         this.flowers.push(this.scene.add.sprite(680 - (x * 5), 400 - (y * 5), i % 2 === 0 ? 'rosered' : 'roseblue').setScale(i % 2 === 0 ? 0.2 / 10 : 0.2 / 5).setAlpha(0));
       }
+      this.flowers.push(this.scene.add.sprite(677, 415, 'zhudou').setScale(0.3).setAlpha(0));
     }
     // flowers.push(this.scene.add.sprite(680, 480, 'star').setScale(0.2).setAlpha(0));
     // flowers.push(this.scene.add.sprite(660, 460, 'star').setScale(0.2).setAlpha(0));
