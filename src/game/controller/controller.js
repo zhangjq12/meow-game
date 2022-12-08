@@ -19,6 +19,6 @@ export const controllerUpdate = (cursors, player) => {
   }
 
   if (cursors.space.isDown && player.body.touching.down) {
-    player.setVelocityY(-600);
+    player.setVelocityY(-660);
   }
 };

@@ -3,7 +3,6 @@ import Char1 from '../character/char1'
 import { controllerInit, controllerUpdate } from '../controller/controller'
 import { globalVariables } from '../game';
 import Collection from '../items/collection';
-import Flowers from '../items/flowers';
 import Question from '../items/ques';
 import Score from '../menu/score';
 import Platform1 from '../platforms/combo1'
@@ -64,17 +63,20 @@ export default class HelloWorldScene extends Phaser.Scene {
 
     // emitter.startFollow(logo)
     this.add.image(this.game.config.width / 2, this.game.config.height / 2, 'sky').setScale(12);
-    this.physics.world.setBounds(0, 0, 2048, 768);
-    this.cameras.main.setBounds(0, 0, 2048, 768);
+    this.physics.world.setBounds(0, 0, 2048, 1536);
+    this.cameras.main.setBounds(0, 0, 2048, 1536);
     
     const platform1 = new Platform1(this);
     const platforms = platform1.create();
     
-    const flowers = new Flowers(this);
-    const question1 = new Question(this);
     const char1 = new Char1(this);
     this.player = char1.createPlayer();
-    const questions = question1.create(this.player, flowers);
+    const questions = [];
+    questions.push(new Question(this).create(this.player, 680, 1280, false));
+    questions.push(new Question(this).create(this.player, 816, 1080, false));
+    questions.push(new Question(this).create(this.player, 180 + 128 + 192 + 128, 880, false));
+    questions.push(new Question(this).create(this.player, 340, 480, true));
+    
     this.physics.add.collider(this.player, platforms);
     this.cursors = controllerInit(this);
     this.cameras.main.startFollow(this.player);

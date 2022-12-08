@@ -6,7 +6,7 @@ export default class Char1 {
 
   createPlayer() {
     // const player = this.scene.physics.add.sprite(100, 450, "dude");
-    const player = this.scene.physics.add.sprite(100, 600, "mitao").setScale(0.3);
+    const player = this.scene.physics.add.sprite(100, 1300, "mitao").setSize(100, 240).setScale(0.3);
 
     player.setBounce(0.2);
     player.setCollideWorldBounds(true);

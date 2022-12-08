@@ -22,14 +22,16 @@ export default class Collection {
       child.setVelocity(Phaser.Math.Between(-200, 200), 20);
       // child.setBounceY(Phaser.Math.FloatBetween(0.4, 0.8));
       // child.setBounceX(Phaser.Math.FloatBetween(0.4, 0.8));
-      child.setBounce(0.8, 0.8);
+      child.setBounce(Phaser.Math.FloatBetween(0.4, 0.8));
       child.setCollideWorldBounds(true);
     });
 
     this.scene.physics.add.collider(this.stars, platforms);
-    this.scene.physics.add.collider(this.stars, questions, (star, question) => {
-      this.collideQuestion(star, question);
-    });
+    for (let i = 0; i < questions.length; i++) {
+      this.scene.physics.add.collider(this.stars, questions[i], (star, question) => {
+        this.collideQuestion(star, question);
+      });
+    }
     this.scene.physics.add.overlap(
       player,
       this.stars,

@@ -1,17 +1,27 @@
 import { eventEmitter } from "../../eventEmitter";
+import Flowers from './flowers';
 
 export default class Question {
   scene;
   flowers;
   counts;
+  isTriggerModal;
+  x;
+  y;
   constructor(scene) {
     this.scene = scene;
     this.count = 0;
+    this.isTriggerModal = false;
+    this.x = 0;
+    this.y = 0;
   }
-  create(player, flowers) {
-    this.flowers = flowers;
+  create(player, x, y, isTriggerModal) {
+    this.flowers = new Flowers(this.scene);
+    this.isTriggerModal = isTriggerModal;
+    this.x = x;
+    this.y = y;
     const ques = this.scene.physics.add
-      .staticSprite(680, 530, "ques")
+      .staticSprite(this.x, this.y, "ques")
       .setSize(64, 64)
       .setScale(64 / 225);
 
@@ -32,9 +42,9 @@ export default class Question {
 
   collideCb(ques, player) {
     if (player.y > ques.y && this.underQuestion(player, ques)) {
-      this.flowers.create();
+      this.flowers.create(this.x, this.y - 130);
       this.count ++;
-      if (this.count === 5) {
+      if (this.count === 5 && this.isTriggerModal) {
         this.count = 0;
         this.scene.scene.pause('startScene');
         eventEmitter.emit('photo');
@@ -46,7 +56,7 @@ export default class Question {
     if (player.y > ques.y && this.underQuestion(player, ques)) {
       ques.scene.tweens.add({
         targets: ques,
-        y: 520,
+        y: this.y - 10,
         ease: "Power1",
         duration: 100,
         repeat: 1,
